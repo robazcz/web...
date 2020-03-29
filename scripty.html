@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>über skripti</title>
+    <style>
+        button{
+            color: white;
+            font-size: 2em;
+            padding: 1em 2em 1em 2em;
+            margin-left: 0.25;
+            margin-top: 0.5em;
+            background-color: rgb(117, 209, 221);
+            border: none;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        button:hover{
+            color: rgb(248, 152, 152);
+            font-size: 3em;
+            padding: 1em 2em 1em 2em;
+            margin-top: 0;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="emote()">smajlík</button>
+    <button onclick="namef()">jméno</button>
+
+    <script>
+        function emote() {
+            var x = prompt("Zadej\"smajlík\":");
+            var emoce;
+            switch(x) {
+                case ":-)":
+                    emoce = "šťastný";
+                    break;
+                case ":-(":
+                    emoce = "smutný";
+                    break;
+                case ":-*":
+                    emoce = "zamilovaný";
+                    break;
+                case ":-P":
+                    emoce = "hravý";
+                    break;
+                default:
+                    emoce = "tohle mě nikdo nenaučil, prosím nesuď mě za to :-P";
+            }
+            window.alert(emoce);
+        }
+            function namef() {
+                jmeno = prompt("Zadej jméno:")
+                var leng = jmeno.length;
+                if(leng < 3) {
+                    window.alert("Nemáš normální jméno, je příliš krátké!");
+                }
+                else if(leng > 10) {
+                    window.alert("Nemáš normální jméno, je příliš dlouhé!");
+                }
+                else {
+                    window.alert("Máš normální jméno!");
+            }
+        }
+
+    </script>
+</body>
+</html>
