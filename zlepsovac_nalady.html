@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var name = "Robert";
+        var write;
+        var hours = new Date().getHours();
+        if (6 < hours) {
+            write = `Dobré ráno přeje ${name}!`;
+        }
+        else if (hours == 17) {
+            write = "seš debil";
+        }
+        else if (hours == 10 || 11) {
+            write = `Dobré ráno přeje ${name}`;
+        }
+        else if (hours == 12) {
+            write = `Dobré poledne přeje ${name}!`;
+        }
+        else if (13 < hours < 18) {
+            write = `Dobré odpoledne přeje ${name}!`;
+        }
+        else if (19 < hours < 22) {
+            write = `Dobrý večer přeje ${name}!`;
+        }
+        else {
+            write = `Dobrou noc přeje ${name}!`;
+        }
+        document.writeln(write);
+        document.write(hours);
+    </script>
+</body>
+</html>
