@@ -1,37 +1,49 @@
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Paytone+One&display=swap" rel="stylesheet"> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ahoj! :P</title>
+    <style>
+        body {
+            background-color: rgb(204, 204, 204);    
+        }
+        #pissem {
+            background-color: rgb(255, 255, 255);
+            position: absolute;
+            font-family: 'Paytone One', sans-serif;
+            font-size: 1.5em;
+            padding: 10;
+            margin: 10;
+        }
+    </style>
 </head>
 <body>
+    <div id = pissem></div>
     <script>
         var name = "Robert";
-        var write;
-        var hours = new Date().getHours();
-        if (6 < hours) {
+        let write;
+        let hours = new Date().getHours();
+        if (hours >= 6 && hours <= 9) { 
             write = `Dobré ráno přeje ${name}!`;
         }
-        else if (hours == 17) {
-            write = "seš debil";
-        }
-        else if (hours == 10 || 11) {
-            write = `Dobré ráno přeje ${name}`;
+        else if (hours == 10 || hours == 11) {
+            write = `Dobré dopoledne přeje ${name}!`;
         }
         else if (hours == 12) {
             write = `Dobré poledne přeje ${name}!`;
         }
-        else if (13 < hours < 18) {
+        else if (hours >= 13 && hours <= 18) { 
             write = `Dobré odpoledne přeje ${name}!`;
         }
-        else if (19 < hours < 22) {
+        else if (hours >= 19 && hours <= 22) {
             write = `Dobrý večer přeje ${name}!`;
         }
         else {
             write = `Dobrou noc přeje ${name}!`;
         }
-        document.writeln(write);
-        document.write(hours);
+        //document.write(write);
+        document.getElementById("pissem").innerHTML = write;
     </script>
 </body>
 </html>
