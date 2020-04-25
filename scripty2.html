@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. scripty :|</title>
+</head>
+<body>
+    <button onclick="tenarray()">0-10?</button>
+    <button onclick="odchylka()">odchylka?</button>
+    <button onclick="jidlo()">ovoce? zelenina?</button>
+    <p id = "xd"></p>
+    <p id = "info"></p>
+    <script>
+        function tenarray(){
+            var array = [];
+            for (var i = 10; i >= 0; i--) {
+                array.push(i);
+            }
+            document.getElementById("xd").innerHTML = array.toString();
+        }
+        function odchylka(){
+            var odchylka = 0;
+            var soucet = 0;
+            var ceny = [3500, 2800, 1280, 1920, 4320];
+            for (var i = 0; i < ceny.length; i++) {
+                soucet += ceny[i];
+            }
+            var soucet = soucet / ceny.length;
+            if (soucet < ceny[2]) {
+                odchylka = ceny[2] - soucet;
+            }
+            else {
+                odchylka = soucet - ceny[2];
+            }
+            document.getElementById("xd").innerHTML = "odchylka 3. produktu od průměru je " + odchylka;
+        }
+        function jidlo(){
+            var ovoce = ["jablko", "hruška", "pomeranč", "citron", "mandarinka", "kiwi"];
+            var zelenina = ["mrkev", "celer", "okurka", "paprika", "celer", "ředkev"];
+            var dotaz = prompt("napiš zeleninu nebo ovoce:");
+            var b = 2;
+
+            ovoce.forEach(iff)
+            if (b == 1) {
+                document.getElementById("xd").innerHTML = "tohle je ovoce!";
+                b = 0;
+            }
+            zelenina.forEach(iff)
+            if (b == 1) {
+                document.getElementById("xd").innerHTML = "tohle je zelenina!";
+            }
+            if (b == 2) {
+                document.getElementById("xd").innerHTML = "tohle neumím, nebo to neni ovoce ani zelenina!";
+            }
+            
+            function iff(value){
+                if (value == dotaz) {
+                    b = 1;
+                }
+            }
+        }
+    </script>
+</body>
+</html>
