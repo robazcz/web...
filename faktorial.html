@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faktoiálování</title>
+</head>
+<body>
+    <script>
+        let fak = 1;
+        let z = prompt("Z jakého čísla chcete udělat faktorial?");
+        if(isNaN(z)) {
+            document.write(z + " neni číslo!");
+        }
+        else {
+            if(z != 0){
+                for(var i = z; i > 1; i--) {
+                    fak = fak * i;
+                }
+            }
+            else {
+                fak = 1;
+            }
+            document.write(`Faktorial z čísla ${z} je: ${fak}.`);
+        }
+    </script>
+</body>
+</html>
