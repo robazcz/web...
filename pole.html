@@ -1,0 +1,33 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moje pole!</title>
+</head>
+<body style = "margin: 20px;">
+    <p style = "padding: 10px; background-color: rgb(194, 194, 194);">Pokud potřebujeme uchovávat větší množství proměnných stejného typu, tento problém nám řeší pole. Můžeme si ho představit jako řadu přihrádek, kde v každé máme uložený jeden prvek. Přihrádky jsou očíslované tzv. indexy, první má index 0. Můžeme si však prvky pole místo číslovaní i přímo pojmenovat, tedy je indexovat textovým řetězcem. V některých jazycích musíme při vytváření pole zadat jeho přesnou velikost a stejný datový typ pro všechny prvky. V JavaScriptu nemusíme specifikovat vůbec nic a můžeme si do pole nahrávat, co chceme. Pole úzce souvisí s cykly, protože se potom používají na manipulaci s prvky.</p>
+    
+    <button onclick="pismeno()">Kolik je tam slov o jednom písmenu?</button>
+    <button onclick="spismeno()">Co je to za slova?</button>
+    
+    <div id = "ey"></div>
+
+    <script>
+        var h = "";
+        var count = 0;
+        var neco = "Pokud potřebujeme uchovávat větší množství proměnných stejného typu, tento problém nám řeší pole. Můžeme si ho představit jako řadu přihrádek, kde v každé máme uložený jeden prvek. Přihrádky jsou očíslované tzv. indexy, první má index 0. Můžeme si však prvky pole místo číslovaní i přímo pojmenovat, tedy je indexovat textovým řetězcem. V některých jazycích musíme při vytváření pole zadat jeho přesnou velikost a stejný datový typ pro všechny prvky. V JavaScriptu nemusíme specifikovat vůbec nic a můžeme si do pole nahrávat, co chceme. Pole úzce souvisí s cykly, protože se potom používají na manipulaci s prvky.";
+        for (var x of neco.split(" ")) {
+            if (x.length == 1) {
+                count++;
+                h += x + " ";
+            }
+        }
+        function pismeno(){  
+            document.getElementById("ey").innerHTML = count;
+        }
+        function spismeno(){
+            document.getElementById("ey").innerHTML = h;
+        }
+    </script>
+</body>
+</html>
