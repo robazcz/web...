@@ -1,0 +1,62 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fnce</title>
+</head>
+<body>
+    <input type="text" id="el" placeholder="cokoliv">
+    <button onclick="eldorado()">dělej věci!</button>
+
+    <p id="hr"></p>
+    <p id="co"></p>
+    <div id="ne"></div>
+    <p id="pu"></p>
+
+    <script>
+        function eldorado() {
+            var ins = document.getElementById("el").value;
+            co = Dependent(ins);
+            if(co == 1) {
+                document.getElementById("co").innerHTML = "co chceš s tímhle číslem udělat?";
+                cbutton("násobit 2", 1, ins);
+                cbutton("dělit 2", 2, ins);
+            }
+            else if(co == 0) {
+                document.getElementById("co").innerHTML = "tak tady jsme skončili!";
+            }
+        }
+        function Dependent(jed) {
+            var hp;
+            if(!isNaN(jed)) {
+                document.getElementById("hr").innerHTML = `napsal jsi "${jed}" a je to číslo!`;
+                hp = 1;
+            }
+            else {
+                document.getElementById("hr").innerHTML = `napsal jsi "${jed}" a je to text!`;
+                hp = 0;
+            }
+            return hp;
+        }
+        function cbutton(cont, ev, ins) {
+            var btn = document.createElement("button");
+            btn.innerHTML = cont;
+            if(ev == 1){
+                btn.onclick = function() {nas(ins)};
+            }
+            else if(ev == 2) {
+                btn.onclick = function() {del(ins)};
+            }
+            document.getElementById("ne").appendChild(btn);
+        }
+        function nas(cislo) {
+            let end = cislo * 2;
+            document.getElementById("pu").innerHTML = `výsledek je ${end}`;
+        }
+        function del(cislo) {
+            let end = cislo / 2;
+            document.getElementById("pu").innerHTML = `výsledek je ${end}`;
+        }
+    </script>
+</body>
+</html>
