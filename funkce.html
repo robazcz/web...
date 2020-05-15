@@ -9,53 +9,56 @@
     <button onclick="eldorado()">dělej věci!</button>
 
     <p id="hr"></p>
-    <p id="co"></p>
+    <p id="oc"></p>
     <div id="ne"></div>
     <p id="pu"></p>
-
+    
     <script>
+        var a = 0;
         function eldorado() {
             var ins = document.getElementById("el").value;
             co = Dependent(ins);
             if(co == 1) {
-                document.getElementById("co").innerHTML = "co chceš s tímhle číslem udělat?";
-                cbutton("násobit 2", 1, ins);
-                cbutton("dělit 2", 2, ins);
+                document.getElementById("oc").innerHTML = "Co chceš s tímhle číslem udělat?";
+                cbutton("násobit 2", function() {nas(ins)});
+                cbutton("dělit 2", function() {del(ins)});
             }
             else if(co == 0) {
-                document.getElementById("co").innerHTML = "tak tady jsme skončili!";
+                document.getElementById("oc").innerHTML = "Tak tady jsme skončili!";
+                document.getElementById("ne").innerHTML = "";
+                document.getElementById("pu").innerHTML = "";
             }
         }
         function Dependent(jed) {
             var hp;
             if(!isNaN(jed)) {
-                document.getElementById("hr").innerHTML = `napsal jsi "${jed}" a je to číslo!`;
+                document.getElementById("hr").innerHTML = `Napsal jsi "${jed}" a je to číslo!`;
                 hp = 1;
             }
             else {
-                document.getElementById("hr").innerHTML = `napsal jsi "${jed}" a je to text!`;
+                document.getElementById("hr").innerHTML = `Napsal jsi "${jed}" a je to text!`;
                 hp = 0;
             }
             return hp;
         }
-        function cbutton(cont, ev, ins) {
+        function cbutton(cont, ev) {
+            if(a == 2) {
+                document.getElementById("ne").innerHTML = "";
+                a = 0
+            }
             var btn = document.createElement("button");
             btn.innerHTML = cont;
-            if(ev == 1){
-                btn.onclick = function() {nas(ins)};
-            }
-            else if(ev == 2) {
-                btn.onclick = function() {del(ins)};
-            }
+            btn.onclick = ev;
             document.getElementById("ne").appendChild(btn);
+            a++;
         }
         function nas(cislo) {
             let end = cislo * 2;
-            document.getElementById("pu").innerHTML = `výsledek je ${end}`;
+            document.getElementById("pu").innerHTML = `Výsledek je ${end}.`;
         }
         function del(cislo) {
             let end = cislo / 2;
-            document.getElementById("pu").innerHTML = `výsledek je ${end}`;
+            document.getElementById("pu").innerHTML = `Výsledek je ${end}.`;
         }
     </script>
 </body>
