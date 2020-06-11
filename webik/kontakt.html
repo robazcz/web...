@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <link rel="icon" href="tissicong.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Kapesníkárna U Jelena</title>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <header>
+        <img class="tissp" src="tisspack.png">
+        <ul>
+            <li><a href="main.html">O&nbsp;nás</a></li>
+            <li class="active"><a href=" ">Kontakt</a></li>
+            <li><a href="customizer.html">Styl&nbsp;stránky</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="mflex">
+            <div class="side">
+                <img src="tissues.png" alt="tissue">
+                <img src="tissues2.png" alt="tissue">
+                <img src="tissues3.png" alt="tissue">
+                <img src="tissues4.png" alt="tissue">
+            </div>
+            <div class="content">
+                <address>
+                    <strong>Adresa:</strong><br>
+                    Najdi si nás na mapě &rarr;<br>
+                    U Krmítka<br>
+                    V Lese :)<br>
+                    <br><br><br>
+                    <strong>Generální ředitel:</strong><br>
+                    Jelen Jelínek<br>
+                    Tel.: Lesní ozvěna<br>
+                    Mail: <a href="mailto:jelen@les.cz">jelen@les.cz</a>
+                </address>
+            </div>
+        </div>
+        <div id="map"></div>
+    </main>
+    <footer>
+        &copy; Robert Jaroš 2020
+    </footer>
+    <script>
+        document.body.style.backgroundColor = sessionStorage.getItem("BGColor");
+        document.body.style.color = sessionStorage.getItem("TColor");
+
+        function initMap() {
+            var uluru = { lat: 49.33265, lng: 14.32209 };
+            var map = new google.maps.Map(document.getElementById('map'), { zoom: 12, center: uluru });
+            var marker = new google.maps.Marker({ position: uluru, map: map });
+
+        }
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=_HEY-KEY_&callback=initMap"></script>
+
+</body>
+
+</html>

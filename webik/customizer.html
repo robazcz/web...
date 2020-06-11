@@ -1,0 +1,130 @@
+<html lang="en">
+
+<head>
+    <link rel="icon" href="tissicong.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Tera&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Overpass&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylista - Kapesníkárna U Jelena</title>
+</head>
+
+<body>
+    <div class="bg"></div>
+    <header>
+        <img class="tissp" src="tisspack.png">
+        <ul>
+            <li><a href="main.html">O&nbsp;nás</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+            <li class="active"><a href=" ">Styl&nbsp;stránky</a></li>
+        </ul>
+    </header>
+    <main>
+        <div class="changer">
+            <label for="color">Změna barvy pozadí:</label>
+            <div>
+                <input type="text" name="color" id="inColorBg">
+                <input type="button" value="Změnit barvu" onclick="subColor('bg')">
+            </div>
+            <div>
+                <input type="color" name="color" id="colPickerBg" onchange="rawColor('bg')">
+            </div>
+        </div>
+        <div class="changer">
+            <label for="color">Změna barvy písma:</label>
+            <div>
+                <input type="text" name="color" id="inColorCol">
+                <input type="button" value="Změnit barvu" onclick="subColor('col')">
+            </div>
+            <div>
+                <input type="color" name="color" id="colPickerCol" onchange="rawColor('col')">
+            </div>
+        </div>
+        <div class="changer">
+            <label for="blur">Co to je?</label>
+            <div id="reveal">Vůbec nic.</div>
+            <div>
+                <input type="range" min="0" max="100" value="0" name="blur" id="blurSlider">
+            </div>
+        </div>
+        <div id="reason"></div>
+
+        <div class="status">
+            <div>Aktuální barva pozadí: <div id="BGC">white</div>
+            </div>
+            <div>Aktuální barva písma: <div id="TC">black</div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; Robert Jaroš 2020
+    </footer>
+    <script>
+        document.getElementById("blurSlider").oninput = function () {
+            document.getElementById("reveal").style.opacity = `${this.value / 100}`;
+        };
+
+        function Change() {
+            let BGColor = sessionStorage.getItem("BGColor");
+            let TColor = sessionStorage.getItem("TColor");
+            if (BGColor != null) {
+                document.getElementById("BGC").innerHTML = BGColor;
+                document.getElementById("BGC").style.color = BGColor;
+                document.body.style.backgroundColor = BGColor;
+            }
+            if (TColor != null) {
+                document.getElementById("TC").innerHTML = TColor;
+                document.getElementById("TC").style.color = TColor;
+                document.body.style.color = TColor;
+            }
+        }
+
+        function subColor(type) {
+            if (type == 'bg') {
+                var colInput = document.getElementById("inColorBg").value;
+            }
+            else if (type == "col") {
+                var colInput = document.getElementById("inColorCol").value;
+            }
+            var s = new Option().style;
+            s.color = colInput;
+            if (s.color == colInput) {
+                if (type == "bg") {
+                    sessionStorage.setItem("BGColor", colInput);
+                }
+                else if (type == "col") {
+                    sessionStorage.setItem("TColor", colInput)
+                }
+            }
+            else if (/^#[0-9A-F]{6}$/i.test(colInput)) {
+                if (type == "bg") {
+                    sessionStorage.setItem("BGColor", colInput);
+                }
+                else if (type == "col") {
+                    sessionStorage.setItem("TColor", colInput)
+                }
+            }
+            else {
+                document.getElementById("reason").innerHTML = `"${colInput}" není barva.`
+            }
+            Change();
+        }
+
+        function rawColor(type) {
+            if (type == "bg") {
+                var colInput = document.getElementById("colPickerBg").value;
+                sessionStorage.setItem("BGColor", colInput);
+            }
+            else if (type == "col") {
+                var colInput = document.getElementById("colPickerCol").value;
+                sessionStorage.setItem("TColor", colInput)
+            }
+            Change();
+        }
+
+        Change();
+    </script>
+</body>
+
+</html>
